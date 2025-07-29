@@ -1,0 +1,47 @@
+execve("./a.out", ["./a.out"], 0x7ffd9a4bbc20 /* 26 vars */) = 0
+brk(NULL)                               = 0x555becf01000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffda3624130) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd24119a000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=38228, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 38228, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd241190000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\325\31p\226\367\t\200\30)\261\30\257\33|\366c"..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fd240f67000
+mprotect(0x7fd240f8f000, 2023424, PROT_NONE) = 0
+mmap(0x7fd240f8f000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7fd240f8f000
+mmap(0x7fd241124000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7fd241124000
+mmap(0x7fd24117d000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7fd24117d000
+mmap(0x7fd241183000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fd241183000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd240f64000
+arch_prctl(ARCH_SET_FS, 0x7fd240f64740) = 0
+set_tid_address(0x7fd240f64a10)         = 3101
+set_robust_list(0x7fd240f64a20, 24)     = 0
+rseq(0x7fd240f650e0, 0x20, 0, 0x53053053) = 0
+mprotect(0x7fd24117d000, 16384, PROT_READ) = 0
+mprotect(0x555be3dca000, 4096, PROT_READ) = 0
+mprotect(0x7fd2411d4000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7fd241190000, 38228)           = 0
+getrandom("\x67\x82\xeb\x60\x24\xdc\x0d\x75", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x555becf01000
+brk(0x555becf22000)                     = 0x555becf22000
+openat(AT_FDCWD, "test.txt", O_RDWR|O_CREAT|O_APPEND, 0666) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=131, ...}, AT_EMPTY_PATH) = 0
+read(3, "hello\nupdated with this string\nu"..., 4096) = 131
+newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+write(1, "content before update: hello\nupd"..., 104) = 104
+write(1, "updated with this s\n", 20)   = 20
+write(3, "updated with this string\n", 25) = 25
+close(3)                                = 0
+write(1, "File updated successfully\n", 26) = 26
+exit_group(0)                           = ?
++++ exited with 0 +++
