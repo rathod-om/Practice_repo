@@ -1,9 +1,5 @@
 {
 	"Employees":	[{
-			"name":	"ravi",
-			"GID":	166857,
-			"Domain":	"solution"
-		}, {
 			"name":	"Dhruv",
 			"GID":	166891,
 			"Domain":	"Robotics"
@@ -15,13 +11,5 @@
 			"name":	"jay",
 			"GID":	166889,
 			"Domain":	"embedded"
-		}, {
-			"name":	"om",
-			"GID":	1234,
-			"Domain":	"ss"
-		}, {
-			"name":	"om",
-			"GID":	166857,
-			"Domain":	"solution"
 		}]
 }

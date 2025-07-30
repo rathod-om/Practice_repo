@@ -2,7 +2,7 @@ P= employee_data
 
 
 
-target: build execute clean
+target: build execute
 
 build:
 	gcc -Wall -g $(P).c -o $(P) -lcjson

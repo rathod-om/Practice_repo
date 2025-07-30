@@ -29,12 +29,15 @@ int main(){
 				break;
 			case 2:
 				add_employee(root);	
+				save_to_file(root);
 				break;
 			case 3:
 				update_employee(root);
+				save_to_file(root);
 				break;
 			case 4:
 				remove_employee(root);
+				save_to_file(root);
 				break;
 			case 5:
 				save_to_file(root);
