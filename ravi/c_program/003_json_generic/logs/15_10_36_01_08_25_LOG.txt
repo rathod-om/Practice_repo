@@ -1,0 +1,117 @@
+Script started on 2025-08-01 15:10:36+05:30 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="133" LINES="33"]
+Options to add to Object
+	1. add string
+	2. add number
+	3. add boolean
+	4. add null
+	5. exit
+	6. Display
+	7. Remove key
+	8.add string array
+	9. Nested Object
+	10. Update item
+Enter your choice:7 6
+{
+	"new_array":	"1",
+	"xyz":	"done",
+	"om":	"1",
+	"test":	"{",
+	"test1":	"we",
+	"example":	{
+		"array":	["1", "2"]
+	},
+	"aaa":	true,
+	"wq":	"\"",
+	"task":	":",
+	"backspace":	"\b",
+	"left arrow":	"\u001b[D",
+	"nested sample":	{
+		"new string":	"updated"
+	},
+	"nested in while":	{
+		"boolean 1":	true,
+		"array":	["om", "DJ", "jay", "Dhruv", "anish"]
+	},
+	"boolean":	true,
+	"null":	null,
+	"hello":	{
+	}
+}
+Options to add to Object
+	1. add string
+	2. add number
+	3. add boolean
+	4. add null
+	5. exit
+	6. Display
+	7. Remove key
+	8.add string array
+	9. Nested Object
+	10. Update item
+Enter your choice:7
+Enter key to remove item: hello
+Options to add to Object
+	1. add string
+	2. add number
+	3. add boolean
+	4. add null
+	5. exit
+	6. Display
+	7. Remove key
+	8.add string array
+	9. Nested Object
+	10. Update item
+Enter your choice:10
+Enter key: om
+Enter value to update: 10  9
+Options to add to Object
+	1. add string
+	2. add number
+	3. add boolean
+	4. add null
+	5. exit
+	6. Display
+	7. Remove key
+	8.add string array
+	9. Nested Object
+	10. Update item
+Enter your choice:6
+{
+	"new_array":	"1",
+	"xyz":	"done",
+	"om":	"9",
+	"test":	"{",
+	"test1":	"we",
+	"example":	{
+		"array":	["1", "2"]
+	},
+	"aaa":	true,
+	"wq":	"\"",
+	"task":	":",
+	"backspace":	"\b",
+	"left arrow":	"\u001b[D",
+	"nested sample":	{
+		"new string":	"updated"
+	},
+	"nested in while":	{
+		"boolean 1":	true,
+		"array":	["om", "DJ", "jay", "Dhruv", "anish"]
+	},
+	"boolean":	true,
+	"null":	null
+}
+Options to add to Object
+	1. add string
+	2. add number
+	3. add boolean
+	4. add null
+	5. exit
+	6. Display
+	7. Remove key
+	8.add string array
+	9. Nested Object
+	10. Update item
+Enter your choice:5
+Exiting Program
+
+Script done on 2025-08-01 15:11:06+05:30 [COMMAND_EXIT_CODE="0"]

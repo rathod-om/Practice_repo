@@ -1,7 +1,7 @@
 {
 	"new_array":	"1",
 	"xyz":	"done",
-	"om":	"1",
+	"om":	"9",
 	"test":	"{",
 	"test1":	"we",
 	"example":	{
@@ -19,5 +19,6 @@
 		"boolean 1":	true,
 		"array":	["om", "DJ", "jay", "Dhruv", "anish"]
 	},
-	"boolean":	true
+	"boolean":	true,
+	"null":	null
 }
