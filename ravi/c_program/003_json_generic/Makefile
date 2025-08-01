@@ -5,7 +5,7 @@ P= json_generic
 target: build execute clean
 
 build:
-	gcc -Wall -g $(P).c -o $(P) -lcjson
+	gcc -Wall -g $(P).c  -o $(P) -lcjson
 
 execute:
 	./$(P) $(ARG) 

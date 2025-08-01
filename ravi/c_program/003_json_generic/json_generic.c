@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>                                         
 #include <cjson/cJSON.h>
+#include <time.h>
 
+//#include "log_func.h"
 
 #define JSON_FILE "data.json"
 #define MAX_LEN 100
@@ -20,12 +22,13 @@ void remove_from_object(cJSON *root);
 void nested_object(cJSON *root);
 void update_item(cJSON *root);
 
+//FILE *log_file = NULL;
 
 int main(){
 	cJSON *root = load_json();
 	int choice;
 	do{
-		printf("Options to add to Object\n\t1. add string\n\t2. add number\n\t3. add boolean\n\t4. add null\n\t5. exit\n\t6. Display\n\t7. Remove key\n\t8.add string array\n\t9. Nested Object\n\t10. Update item");
+		printf("Options to add to Object\n\t1. add string\n\t2. add number\n\t3. add boolean\n\t4. add null\n\t5. exit\n\t6. Display\n\t7. Remove key\n\t8.add string array\n\t9. Nested Object\n\t10. Update item\n");
 		printf("Enter your choice:");
 		scanf("%d",&choice);
 		getchar();
@@ -60,6 +63,7 @@ int main(){
 				break;
 			case 10:
 				update_item(root);
+				break;
 			default:
 				printf("Invalid input\n");
 
@@ -72,19 +76,20 @@ int main(){
 
 void nested_object(cJSON *root){
 	char key[MAX_LEN];
-	
+
 	printf("Enter key: ");
-        fgets(key, sizeof(key), stdin);
-        key[strcspn(key, "\n")] = 0;
-	
+	fgets(key, sizeof(key), stdin);
+	key[strcspn(key, "\n")] = 0;
+
 	cJSON *nested = cJSON_CreateObject();
-	
+
 	int choice;
-	printf("Options to add to Object\n\t1. add string\n\t2. add number\n\t3. add boolean\n\t4. add null\n\t5. add string array\n");
+	do{
+	printf("Options to add to Object\n\t1. add string\n\t2. add number\n\t3. add boolean\n\t4. add null\n\t5. add string array\n\t6. Keep empty\n\t7.Back menu\n");
 	printf("Enter your choice:");
 	scanf("%d",&choice);
 	getchar();
-
+	
 	switch(choice){
 		case 1:
 			add_string(nested);
@@ -101,10 +106,19 @@ void nested_object(cJSON *root){
 		case 5: 
 			add_array_string(nested);
 			break;
+		case 6:
+			printf("No element is added in nested object\n");
+			break;
+		case 7:
+			printf("entered in main menu\n");
+			break;
 		default: 
 			printf("Invalid input\n");
-	}
 
+	}
+	}while(choice != 7);
+
+	
 
 	cJSON_AddItemToObject(root,key,nested);	
 }
@@ -232,16 +246,44 @@ void remove_from_object(cJSON *root){
 
 void update_item(cJSON *root){
 	char str_key[MAX_LEN];
-        char str_value[MAX_LEN];
-        printf("Enter key: ");
-        fgets(str_key,sizeof(str_key),stdin);
-        str_key[strcspn(str_key,"\n")] = 0;
+	char str_value[MAX_LEN];
+	printf("Enter key: ");
+	fgets(str_key,sizeof(str_key),stdin);
+	str_key[strcspn(str_key,"\n")] = 0;
 
-        printf("Enter value to update: ");
-        fgets(str_value,sizeof(str_value),stdin);
-        str_value[strcspn(str_value,"\n")] = 0;
+	cJSON *item = cJSON_GetObjectItemCaseSensitive(root,str_key);
 
-	cJSON_ReplaceItemInObject(root,str_key,cJSON_CreateString(str_value));
+	if(cJSON_IsString(item)){
+		printf("Enter value to update: ");
+		fgets(str_value,sizeof(str_value),stdin);
+		str_value[strcspn(str_value,"\n")] = 0;
+		cJSON_ReplaceItemInObject(root,str_key,cJSON_CreateString(str_value));
+	}
+	else if (cJSON_IsNumber(item)) {
+		printf("Current type: Number\nEnter new value: ");
+		fgets(str_value, sizeof(str_value), stdin);
+		cJSON_ReplaceItemInObject(root, str_key, cJSON_CreateNumber(atof(str_value)));
+	}
+
+	else if (cJSON_IsObject(item)){
+		cJSON *nested = cJSON_GetObjectItem(root,str_key);
+		update_item(nested);
+	}
+	/*
+	else if (cJSON_IsArray(item)){
+		cJSON *array = cJSON_GetObjectItem(root,str_key);
+		int index;
+		printf("Enter index to update value: ");
+		scanf("%d",&index);
+		while(getchar()!= '\n');
+
+		cJSON 
+	}
+	*/
+	else
+	{
+		printf("Can't update\n");
+	}
 }
 
 void display_json_data(cJSON *root){
@@ -259,3 +301,7 @@ void save_to_file(cJSON *root){
 	}
 	free(json_str);
 }
+
+
+
+

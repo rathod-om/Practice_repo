@@ -1,6 +1,23 @@
 {
-	"nothing":	"NULL",
-	"new_array":	["1", "2", "3", "4", ""],
-	"xyz":	"99",
-	"om":	"1"
+	"new_array":	"1",
+	"xyz":	"done",
+	"om":	"1",
+	"test":	"{",
+	"test1":	"we",
+	"example":	{
+		"array":	["1", "2"]
+	},
+	"aaa":	true,
+	"wq":	"\"",
+	"task":	":",
+	"backspace":	"\b",
+	"left arrow":	"\u001b[D",
+	"nested sample":	{
+		"new string":	"updated"
+	},
+	"nested in while":	{
+		"boolean 1":	true,
+		"array":	["om", "DJ", "jay", "Dhruv", "anish"]
+	},
+	"boolean":	true
 }
