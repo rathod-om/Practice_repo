@@ -11,14 +11,18 @@
 	"wq":	"\"",
 	"task":	":",
 	"backspace":	"\b",
-	"left arrow":	"\u001b[D",
-	"nested sample":	{
-		"new string":	"updated"
-	},
 	"nested in while":	{
 		"boolean 1":	true,
-		"array":	["om", "DJ", "jay", "Dhruv", "anish"]
+		"array":	["om", "DJ", "JAY", "Dhruv", "anish"]
 	},
-	"boolean":	true,
-	"null":	null
+	"boolean":	false,
+	"null":	35,
+	"djskdk":	"hell\",\"fdfd\": \"dssdf\"",
+	"t1":	{
+		"t3":	["33", "44"]
+	},
+	"test1":	"\"hi\"",
+	"test2":	23.2,
+	"test4":	true,
+	"test5":	["hey", "my", "name", "OM"]
 }

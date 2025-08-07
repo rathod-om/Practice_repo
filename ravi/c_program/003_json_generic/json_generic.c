@@ -28,48 +28,48 @@ int main(){
 	cJSON *root = load_json();
 	int choice;
 	do{
-		printf("Options to add to Object\n\t1. add string\n\t2. add number\n\t3. add boolean\n\t4. add null\n\t5. exit\n\t6. Display\n\t7. Remove key\n\t8.add string array\n\t9. Nested Object\n\t10. Update item\n");
+		printf("Options to add to Object\n\t1. Display\n\t2. Add string\n\t3. Add number\n\t4. Add boolean\n\t5. Add null\n\t6. add Array\n\t7. Nested Object\n\t8. Update item\n\t9. Remove\n\t10. Exit\n");
 		printf("Enter your choice:");
 		scanf("%d",&choice);
 		getchar();
 
 		switch(choice){
 			case 1:
-				add_string(root);
-				break;
-			case 2:
-				add_number(root);	
-				break;
-			case 3:
-				add_boolean(root);
-				break;
-			case 4: 
-				add_null(root);
-				break;
-			case 5:
-				printf("Exiting Program\n");
-				break;
-			case 6:
 				display_json_data(root);
 				break;
-			case 7:
-				remove_from_object(root);
+			case 2:
+				add_string(root);
 				break;
-			case 8:
+			case 3:
+				add_number(root);	
+				break;
+			case 4: 
+				add_boolean(root);
+				break;
+			case 5:
+				add_null(root);
+				break;
+			case 6:
 				add_array_string(root);
 				break;
-			case 9:
+			case 7:
 				nested_object(root);
 				break;
-			case 10:
+			case 8:
 				update_item(root);
+				break;
+			case 9:
+				remove_from_object(root);
+				break;
+			case 10:
+				printf("Exiting Program\n");
 				break;
 			default:
 				printf("Invalid input\n");
 
 		}
 		save_to_file(root);
-	}while(choice!=5);
+	}while(choice!=10);
 
 	return 0;
 }
@@ -85,40 +85,40 @@ void nested_object(cJSON *root){
 
 	int choice;
 	do{
-	printf("Options to add to Object\n\t1. add string\n\t2. add number\n\t3. add boolean\n\t4. add null\n\t5. add string array\n\t6. Keep empty\n\t7.Back menu\n");
-	printf("Enter your choice:");
-	scanf("%d",&choice);
-	getchar();
-	
-	switch(choice){
-		case 1:
-			add_string(nested);
-			break;
-		case 2:
-			add_number(nested);
-			break;
-		case 3:
-			add_boolean(nested);
-			break;
-		case 4:
-			add_null(nested);
-			break;
-		case 5: 
-			add_array_string(nested);
-			break;
-		case 6:
-			printf("No element is added in nested object\n");
-			break;
-		case 7:
-			printf("entered in main menu\n");
-			break;
-		default: 
-			printf("Invalid input\n");
+		printf("Options to add to Object\n\t1. add string\n\t2. add number\n\t3. add boolean\n\t4. add null\n\t5. add string array\n\t6. Keep empty\n\t7.Back menu\n");
+		printf("Enter your choice:");
+		scanf("%d",&choice);
+		getchar();
 
-	}
+		switch(choice){
+			case 1:
+				add_string(nested);
+				break;
+			case 2:
+				add_number(nested);
+				break;
+			case 3:
+				add_boolean(nested);
+				break;
+			case 4:
+				add_null(nested);
+				break;
+			case 5: 
+				add_array_string(nested);
+				break;
+			case 6:
+				printf("No element is added in nested object\n");
+				break;
+			case 7:
+				printf("entered in main menu\n");
+				break;
+			default: 
+				printf("Invalid input\n");
+
+		}
 	}while(choice != 7);
 
-	
+
 
 	cJSON_AddItemToObject(root,key,nested);	
 }
@@ -239,8 +239,25 @@ void remove_from_object(cJSON *root){
 	printf("Enter key to remove item: ");
 	fgets(key, sizeof(key), stdin);
 	key[strcspn(key, "\n")] = 0;
+	
+	cJSON *item = cJSON_GetObjectItemCaseSensitive(root,key);
 
-	cJSON_DeleteItemFromObject(root,key);
+	if (item == NULL) {
+        	printf("Key not found.\n");
+        	return;
+    	}
+
+	if (cJSON_IsObject(item)){
+		if (cJSON_GetArraySize(item) == 0){
+			cJSON_DeleteItemFromObject(root,key);
+			return;
+		}
+		remove_from_object(item);
+	}
+	else{	
+		cJSON_DeleteItemFromObject(root,key);
+	}
+	
 	//save_to_file(root);	
 }
 
@@ -269,7 +286,7 @@ void update_item(cJSON *root){
 		cJSON *nested = cJSON_GetObjectItem(root,str_key);
 		update_item(nested);
 	}
-	/*
+
 	else if (cJSON_IsArray(item)){
 		cJSON *array = cJSON_GetObjectItem(root,str_key);
 		int index;
@@ -277,9 +294,49 @@ void update_item(cJSON *root){
 		scanf("%d",&index);
 		while(getchar()!= '\n');
 
-		cJSON 
+		if (index > cJSON_GetArraySize(array)){
+			printf("Array out of bound\n");
+			return;
+		} 
+
+		char new_value[MAX_LEN];
+		printf("Enter new value: ");
+		fgets(new_value,sizeof(new_value),stdin);
+		new_value[strcspn(new_value,"\n")] = 0;
+
+		cJSON_ReplaceItemInArray(array,index,cJSON_CreateString(new_value));
+		printf("Item has been updated\n");
+
 	}
-	*/
+
+	else if (cJSON_IsTrue(item) || cJSON_IsFalse(item)) {
+		printf("Current type: Boolean\nEnter new value (true/false): ");
+		fgets(str_value, sizeof(str_value), stdin);
+		str_value[strcspn(str_value, "\n")] = 0;
+		if (strcmp(str_value, "true") == 0)
+			cJSON_ReplaceItemInObject(root, str_key, cJSON_CreateTrue());
+		else if (strcmp(str_value, "false") == 0)
+			cJSON_ReplaceItemInObject(root, str_key, cJSON_CreateFalse());
+		else
+			printf("Invalid boolean value.\n");
+	} 
+	else if (cJSON_IsNull(item)) {
+		printf("Current type: Null\nEnter new value (null/string/number/true/false): ");
+		fgets(str_value, sizeof(str_value), stdin);
+		str_value[strcspn(str_value, "\n")] = 0;
+
+		if (strcmp(str_value, "null") == 0)
+			cJSON_ReplaceItemInObject(root, str_key, cJSON_CreateNull());
+		else if (strcmp(str_value, "true") == 0)
+			cJSON_ReplaceItemInObject(root, str_key, cJSON_CreateTrue());
+		else if (strcmp(str_value, "false") == 0)
+			cJSON_ReplaceItemInObject(root, str_key, cJSON_CreateFalse());
+		else if (strspn(str_value, "0123456789.") == strlen(str_value))
+			cJSON_ReplaceItemInObject(root, str_key, cJSON_CreateNumber(atof(str_value)));
+		else
+			cJSON_ReplaceItemInObject(root, str_key, cJSON_CreateString(str_value));
+	} 
+
 	else
 	{
 		printf("Can't update\n");
