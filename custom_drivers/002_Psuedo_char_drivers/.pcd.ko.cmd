@@ -1,0 +1,1 @@
+savedcmd_/home/om/workspace/ldd/custom_drivers/002_Psuedo_char_drivers/pcd.ko := ld -r -m elf_x86_64 -z noexecstack --build-id=sha1  -T scripts/module.lds -o /home/om/workspace/ldd/custom_drivers/002_Psuedo_char_drivers/pcd.ko /home/om/workspace/ldd/custom_drivers/002_Psuedo_char_drivers/pcd.o /home/om/workspace/ldd/custom_drivers/002_Psuedo_char_drivers/pcd.mod.o

@@ -1,0 +1,1 @@
+savedcmd_/home/om/workspace/ldd/custom_drivers/char_mdriver/pcd_drv.mod := printf '%s\n'   pcd_drv.o | awk '!x[$$0]++ { print("/home/om/workspace/ldd/custom_drivers/char_mdriver/"$$0) }' > /home/om/workspace/ldd/custom_drivers/char_mdriver/pcd_drv.mod

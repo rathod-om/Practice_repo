@@ -1,0 +1,9 @@
+obj-m +=main.o
+
+all:
+	make ARCH=arm CROSS_COMPILE=arm-linux-gneabihf- -C /home/om/workspace/ldd/resource/linux-6.1.142/ M=$PWD modules
+clean :
+	make ARCH=arm CROSS_COMPILE=arm-linux-gneabihf- -C /home/om/workspace/ldd/resource/linux-6.1.142/ M=$PWD clean
+
+help:
+	make ARCH=arm CROSS_COMPILE=arm-linux-gneabihf- -C /home/om/workspace/ldd/resource/linux-6.1.142/ M=$PWD help
