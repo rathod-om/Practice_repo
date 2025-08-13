@@ -1,0 +1,1 @@
+savedcmd_/home/om/workspace/ldd/custom_drivers/002_Psuedo_char_drivers/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/om/workspace/ldd/custom_drivers/002_Psuedo_char_drivers/Module.symvers -T /home/om/workspace/ldd/custom_drivers/002_Psuedo_char_drivers/modules.order -i Module.symvers -e 

@@ -1,0 +1,1 @@
+savedcmd_/home/om/workspace/ldd/custom_drivers/006_i2c_client_driver/i2c_client_driver_LM75A.mod := printf '%s\n'   i2c_client_driver_LM75A.o | awk '!x[$$0]++ { print("/home/om/workspace/ldd/custom_drivers/006_i2c_client_driver/"$$0) }' > /home/om/workspace/ldd/custom_drivers/006_i2c_client_driver/i2c_client_driver_LM75A.mod

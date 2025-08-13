@@ -1,0 +1,1 @@
+savedcmd_/home/om/workspace/ldd/custom_drivers/006_i2c_client_driver/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/om/workspace/ldd/custom_drivers/006_i2c_client_driver/Module.symvers -T /home/om/workspace/ldd/custom_drivers/006_i2c_client_driver/modules.order -i Module.symvers -e 
