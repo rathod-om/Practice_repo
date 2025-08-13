@@ -1,0 +1,262 @@
+Directory already exists
+	if you want to overwrite press 1 or if you want exit press any key: 
+User input: 1
+overwriting
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 https://packages.microsoft.com/ubuntu/20.04/prod focal InRelease
+Hit:2 https://download.docker.com/linux/ubuntu focal InRelease
+Hit:3 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:5 http://archive.canonical.com/ubuntu focal InRelease
+Hit:6 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:7 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:8 http://archive.ubuntu.com/ubuntu focal-security InRelease
+Hit:9 http://cz.archive.ubuntu.com/ubuntu focal InRelease
+Reading package lists...
+Building dependency tree...
+Reading state information...
+30 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+debianutils is already the newest version (4.9.1).
+diffstat is already the newest version (1.63-1).
+gcc is already the newest version (4:9.3.0-1ubuntu2).
+python3 is already the newest version (3.8.2-0ubuntu2).
+python3-pexpect is already the newest version (4.6.0-1build1).
+socat is already the newest version (1.7.3.3-2).
+chrpath is already the newest version (0.16-2).
+libsdl1.2-dev is already the newest version (1.2.15+dfsg2-5).
+python3-git is already the newest version (3.0.7-1).
+texinfo is already the newest version (6.7.0.dfsg.2-5).
+build-essential is already the newest version (12.8ubuntu1.1).
+cpio is already the newest version (2.13+dfsg-2ubuntu0.4).
+gawk is already the newest version (1:5.0.1+dfsg-1ubuntu0.1).
+git is already the newest version (1:2.25.1-1ubuntu3.14).
+iputils-ping is already the newest version (3:20190709-3ubuntu1).
+libzstd-dev is already the newest version (1.4.4+dfsg-3ubuntu0.1).
+locales is already the newest version (2.31-0ubuntu9.18).
+lz4 is already the newest version (1.9.2-2ubuntu0.20.04.1).
+unzip is already the newest version (6.0-25ubuntu1.2).
+wget is already the newest version (1.20.3-1ubuntu2.1).
+xz-utils is already the newest version (5.2.4-1ubuntu1.1).
+liblz4-tool is already the newest version (1.9.2-2ubuntu0.20.04.1).
+python3-pip is already the newest version (20.0.2-5ubuntu1.11).
+xterm is already the newest version (353-1ubuntu1.20.04.2).
+zstd is already the newest version (1.4.4+dfsg-3ubuntu0.1).
+The following packages were automatically installed and are no longer required:
+  chromium-codecs-ffmpeg-extra gir1.2-goa-1.0 gstreamer1.0-vaapi
+  libfwupdplugin1 libva-wayland2 libxmlb1
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 30 not upgraded.
+============= Generate locale  ================
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+Generation complete.
+Verifying locale settings...
+LANG=en_US.UTF-8
+LANGUAGE=en_IN:en
+LC_CTYPE="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_PAPER="en_US.UTF-8"
+LC_NAME="en_US.UTF-8"
+LC_ADDRESS="en_US.UTF-8"
+LC_TELEPHONE="en_US.UTF-8"
+LC_MEASUREMENT="en_US.UTF-8"
+LC_IDENTIFICATION="en_US.UTF-8"
+LC_ALL=en_US.UTF-8
+INFO: Fetching buildtools installer
+INFO: Fetching buildtools installer checksum
+INFO: Checksum success
+INFO: Making installer executable
+Extended Build tools installer version 4.0.28
+=============================================
+You are about to install the SDK to "/home/omrathod/Yocto_install/yocto/poky/buildtools". Proceed [Y/n]? Y
+Extracting SDK..................done
+Setting it up...done
+SDK has been successfully set up and is ready to be used.
+Each time you wish to use the SDK in a new shell session, you need to source the environment setup script e.g.
+ $ . /home/omrathod/Yocto_install/yocto/poky/buildtools/environment-setup-x86_64-pokysdk-linux
+INFO: Setting up the environment
+INFO: Testing installation
+INFO: Installation successful. Remember to source the environment setup script now and in any new session.
+
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Common targets are:
+    core-image-minimal
+    core-image-full-cmdline
+    core-image-sato
+    core-image-weston
+    meta-toolchain
+    meta-ide-support
+
+You can also run generated qemu images with a command like 'runqemu qemux86'
+
+Other commonly useful commands are:
+ - 'devtool' and 'recipetool' handle common recipe tasks
+ - 'bitbake-layers' handles common layer tasks
+ - 'oe-pkgdata-util' handles common target package tasks
+=================================================================
+=============== To enter the build environment later, run : source poky/oe-init-build-env build ===============
+=============== Setup is Done. ===============
+=================================================================
+=============== Creating Creating Layer  ===============
+=============== Creating cloning recipes from git  ===============
+Cloning into 'Practice_repo'...
+=============== bitbaking the core-image-cjson code  ===============
+Loading cache...done.
+Loaded 1649 entries from dependency cache.
+Parsing recipes...done.
+Parsing of 888 .bb files complete (884 cached, 4 parsed). 1649 targets, 63 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.0.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "arm-poky-linux-gnueabi"
+MACHINE              = "beaglebone-yocto"
+DISTRO               = "poky"
+DISTRO_VERSION       = "4.0.29"
+TUNE_FEATURES        = "arm vfp cortexa8 neon callconvention-hard"
+TARGET_FPU           = "hard"
+meta                 
+meta-poky            
+meta-yocto-bsp       = "kirkstone:81ab000fa437ca04f584a3327b076f7a512dc6d0"
+meta-jsonapp         = "<unknown>:<unknown>"
+
+Initialising tasks...done.
+Sstate summary: Wanted 620 Local 0 Mirrors 0 Missed 620 Current 833 (0% match, 57% complete)
+NOTE: Executing Tasks
+NOTE: Running task 179 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_fetch)
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_fetch: Started
+Bitbake still alive (no events for 600s). Active tasks:
+/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_fetch
+Bitbake still alive (no events for 1200s). Active tasks:
+/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_fetch
+Bitbake still alive (no events for 1800s). Active tasks:
+/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_fetch
+Bitbake still alive (no events for 2400s). Active tasks:
+/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_fetch
+Bitbake still alive (no events for 3000s). Active tasks:
+/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_fetch
+Bitbake still alive (no events for 3600s). Active tasks:
+/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_fetch
+Bitbake still alive (no events for 4200s). Active tasks:
+/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_fetch
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_fetch: Succeeded
+NOTE: Running task 2511 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_unpack)
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_unpack: Started
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_unpack: Succeeded
+NOTE: Running task 2512 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_patch)
+NOTE: Running task 2513 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc-initial_11.5.bb:do_populate_lic)
+NOTE: Running task 2514 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc_11.5.bb:do_populate_lic)
+NOTE: Running task 2515 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-runtime_11.5.bb:do_populate_lic)
+NOTE: Running task 2516 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-cross_11.5.bb:do_populate_lic)
+NOTE: Running task 2517 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc_11.5.bb:do_populate_lic)
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_patch: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_populate_lic: Started
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_populate_lic: Started
+NOTE: recipe libgcc-11.5.0-r0: task do_populate_lic: Started
+NOTE: recipe gcc-runtime-11.5.0-r0: task do_populate_lic: Started
+NOTE: recipe gcc-11.5.0-r0: task do_populate_lic: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe libgcc-11.5.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe gcc-runtime-11.5.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe gcc-11.5.0-r0: task do_populate_lic: Succeeded
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_patch: Succeeded
+NOTE: Running task 2518 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_deploy_source_date_epoch)
+NOTE: Running task 2519 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-source_11.5.bb:do_preconfigure)
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_deploy_source_date_epoch: Started
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_preconfigure: Started
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_deploy_source_date_epoch: Succeeded
+NOTE: Running task 2520 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-cross_11.5.bb:do_deploy_source_date_epoch)
+NOTE: Running task 2521 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc-initial_11.5.bb:do_deploy_source_date_epoch)
+NOTE: Running task 2522 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc_11.5.bb:do_deploy_source_date_epoch)
+NOTE: Running task 2523 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-runtime_11.5.bb:do_deploy_source_date_epoch)
+NOTE: Running task 2524 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc_11.5.bb:do_deploy_source_date_epoch)
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_deploy_source_date_epoch: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_deploy_source_date_epoch: Started
+NOTE: recipe libgcc-11.5.0-r0: task do_deploy_source_date_epoch: Started
+NOTE: recipe gcc-source-11.5.0-11.5.0-r0: task do_preconfigure: Succeeded
+NOTE: recipe gcc-runtime-11.5.0-r0: task do_deploy_source_date_epoch: Started
+NOTE: recipe gcc-11.5.0-r0: task do_deploy_source_date_epoch: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_deploy_source_date_epoch: Succeeded
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_deploy_source_date_epoch: Succeeded
+NOTE: recipe libgcc-11.5.0-r0: task do_deploy_source_date_epoch: Succeeded
+NOTE: Running task 2525 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-cross_11.5.bb:do_configure)
+NOTE: recipe gcc-11.5.0-r0: task do_deploy_source_date_epoch: Succeeded
+NOTE: recipe gcc-runtime-11.5.0-r0: task do_deploy_source_date_epoch: Succeeded
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_configure: Started
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_configure: Succeeded
+NOTE: Running task 2526 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-cross_11.5.bb:do_compile)
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_compile: Started
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_compile: Succeeded
+NOTE: Running task 2527 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-cross_11.5.bb:do_gcc_stash_builddir)
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_gcc_stash_builddir: Started
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_gcc_stash_builddir: Succeeded
+NOTE: Running task 2528 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-cross_11.5.bb:do_install)
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_install: Started
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_install: Succeeded
+NOTE: Running task 2529 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/gcc-cross_11.5.bb:do_populate_sysroot)
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_populate_sysroot: Started
+NOTE: recipe gcc-cross-arm-11.5.0-r0: task do_populate_sysroot: Succeeded
+NOTE: Running task 2530 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc-initial_11.5.bb:do_prepare_recipe_sysroot)
+NOTE: Running task 2531 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-kernel/linux/linux-yocto_5.15.bb:do_kernel_configme)
+NOTE: Running task 2532 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-kernel/linux/linux-yocto_5.15.bb:do_prepare_recipe_sysroot)
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_prepare_recipe_sysroot: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_prepare_recipe_sysroot: Succeeded
+NOTE: Running task 2533 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc-initial_11.5.bb:do_configure)
+NOTE: recipe linux-yocto-5.15.150+gitAUTOINC+5932fcfa69_4fca0c4373-r0: task do_kernel_configme: Started
+NOTE: recipe linux-yocto-5.15.150+gitAUTOINC+5932fcfa69_4fca0c4373-r0: task do_prepare_recipe_sysroot: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_configure: Started
+NOTE: recipe linux-yocto-5.15.150+gitAUTOINC+5932fcfa69_4fca0c4373-r0: task do_prepare_recipe_sysroot: Succeeded
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_configure: Succeeded
+NOTE: Running task 2534 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc-initial_11.5.bb:do_compile)
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_compile: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_compile: Succeeded
+NOTE: Running task 2535 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc-initial_11.5.bb:do_install)
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_install: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_install: Succeeded
+NOTE: Running task 2536 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc-initial_11.5.bb:do_multilib_install)
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_multilib_install: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_multilib_install: Succeeded
+NOTE: Running task 2537 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc-initial_11.5.bb:do_extra_symlinks)
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_extra_symlinks: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_extra_symlinks: Succeeded
+NOTE: Running task 2538 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-devtools/gcc/libgcc-initial_11.5.bb:do_populate_sysroot)
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_populate_sysroot: Started
+NOTE: recipe libgcc-initial-11.5.0-r0: task do_populate_sysroot: Succeeded
+NOTE: Running task 2539 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-core/glibc/glibc_2.35.bb:do_prepare_recipe_sysroot)
+NOTE: recipe glibc-2.35-r0: task do_prepare_recipe_sysroot: Started
+NOTE: recipe glibc-2.35-r0: task do_prepare_recipe_sysroot: Succeeded
+NOTE: Running task 2540 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-core/glibc/glibc_2.35.bb:do_configure)
+NOTE: recipe glibc-2.35-r0: task do_configure: Started
+NOTE: recipe linux-yocto-5.15.150+gitAUTOINC+5932fcfa69_4fca0c4373-r0: task do_kernel_configme: Succeeded
+NOTE: Running task 2541 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-kernel/linux/linux-yocto_5.15.bb:do_configure)
+NOTE: recipe linux-yocto-5.15.150+gitAUTOINC+5932fcfa69_4fca0c4373-r0: task do_configure: Started
+NOTE: recipe glibc-2.35-r0: task do_configure: Succeeded
+NOTE: Running task 2542 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-core/glibc/glibc_2.35.bb:do_compile)
+NOTE: recipe glibc-2.35-r0: task do_compile: Started
+NOTE: recipe linux-yocto-5.15.150+gitAUTOINC+5932fcfa69_4fca0c4373-r0: task do_configure: Succeeded
+NOTE: Running task 2543 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-kernel/linux/linux-yocto_5.15.bb:do_kernel_configcheck)
+NOTE: recipe linux-yocto-5.15.150+gitAUTOINC+5932fcfa69_4fca0c4373-r0: task do_kernel_configcheck: Started
+NOTE: recipe linux-yocto-5.15.150+gitAUTOINC+5932fcfa69_4fca0c4373-r0: task do_kernel_configcheck: Succeeded
+NOTE: Running task 2544 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-kernel/linux/linux-yocto_5.15.bb:do_compile)
+NOTE: recipe linux-yocto-5.15.150+gitAUTOINC+5932fcfa69_4fca0c4373-r0: task do_compile: Started
+NOTE: recipe glibc-2.35-r0: task do_compile: Succeeded
+NOTE: Running task 2545 of 3775 (/home/omrathod/Yocto_install/yocto/poky/meta/recipes-core/glibc/glibc_2.35.bb:do_install)
+NOTE: recipe glibc-2.35-r0: task do_install: Started

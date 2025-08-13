@@ -1,0 +1,72 @@
+#!/bin/bash
+
+set -eu
+
+# Configuration
+YOCTO_DIR="$HOME/yocto"
+POKY_DIR="$YOCTO_DIR/poky"
+BUILD_DIR="$YOCTO_DIR/build"
+BRANCH="kirkstone"
+
+LOG_FILE="logs/Yocto_install_and_build_$(date +%d_%m_%y_%H_%M_%S).log"
+
+exec > >(tee -a "$LOG_FILE") 2>&1
+
+# Install required packages
+sudo apt update
+sudo apt install -y \
+    gawk wget git diffstat unzip texinfo gcc build-essential \
+    chrpath socat cpio python3 python3-pip python3-pexpect \
+    xz-utils debianutils iputils-ping libsdl1.2-dev xterm \
+    python3-git locales zstd lz4 liblz4-tool libzstd-dev
+
+# Generate locale
+
+echo "============= Generate locale  ================"
+sudo locale-gen en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+
+echo "Verifying locale settings..."
+locale
+
+
+# Create directory structure
+mkdir -p "$YOCTO_DIR"
+#cd "$YOCTO_DIR"
+
+# Clone Poky if not already present
+if [ ! -d "$POKY_DIR" ]; then
+    git clone -b "$BRANCH" git://git.yoctoproject.org/poky.git "$POKY_DIR"
+fi
+
+# Install Yocto buildtools
+"$POKY_DIR/scripts/install-buildtools" --base-url https://downloads.yoctoproject.org/releases/yocto
+
+# Source build environment once
+set +u
+source "$POKY_DIR/oe-init-build-env" "$BUILD_DIR"
+set -u
+
+# Disable LTO to prevent gcc-cross build issues
+echo 'INHERIT_REMOVE = "lto"' >> "$BUILD_DIR/conf/local.conf"
+
+echo "================================================================="
+echo "=============== To enter the build environment later, run : source poky/oe-init-build-env build ==============="
+echo "=============== Setup is Done. ==============="
+echo "================================================================="
+
+
+# Creating Image for beagle-bone-black
+echo "=============== Creating Image for beagle-bone-black  ==============="
+
+set +u
+source "$POKY_DIR/oe-init-build-env" "$BUILD_DIR"
+set -u
+
+MACHINE=beaglebone-yocto bitbake core-image-minimal
+#/home/omrathod/Yocto_install/create_image.sh
+

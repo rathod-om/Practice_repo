@@ -1,0 +1,156 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 https://download.docker.com/linux/ubuntu focal InRelease
+Hit:2 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:3 https://packages.microsoft.com/ubuntu/20.04/prod focal InRelease
+Hit:4 http://archive.canonical.com/ubuntu focal InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:6 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:7 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:8 http://cz.archive.ubuntu.com/ubuntu focal InRelease
+Hit:9 http://archive.ubuntu.com/ubuntu focal-security InRelease
+Reading package lists...
+Building dependency tree...
+Reading state information...
+30 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+debianutils is already the newest version (4.9.1).
+diffstat is already the newest version (1.63-1).
+gcc is already the newest version (4:9.3.0-1ubuntu2).
+python3 is already the newest version (3.8.2-0ubuntu2).
+python3-pexpect is already the newest version (4.6.0-1build1).
+socat is already the newest version (1.7.3.3-2).
+chrpath is already the newest version (0.16-2).
+libsdl1.2-dev is already the newest version (1.2.15+dfsg2-5).
+python3-git is already the newest version (3.0.7-1).
+texinfo is already the newest version (6.7.0.dfsg.2-5).
+build-essential is already the newest version (12.8ubuntu1.1).
+cpio is already the newest version (2.13+dfsg-2ubuntu0.4).
+gawk is already the newest version (1:5.0.1+dfsg-1ubuntu0.1).
+git is already the newest version (1:2.25.1-1ubuntu3.14).
+iputils-ping is already the newest version (3:20190709-3ubuntu1).
+libzstd-dev is already the newest version (1.4.4+dfsg-3ubuntu0.1).
+locales is already the newest version (2.31-0ubuntu9.18).
+lz4 is already the newest version (1.9.2-2ubuntu0.20.04.1).
+unzip is already the newest version (6.0-25ubuntu1.2).
+wget is already the newest version (1.20.3-1ubuntu2.1).
+xz-utils is already the newest version (5.2.4-1ubuntu1.1).
+liblz4-tool is already the newest version (1.9.2-2ubuntu0.20.04.1).
+python3-pip is already the newest version (20.0.2-5ubuntu1.11).
+xterm is already the newest version (353-1ubuntu1.20.04.2).
+zstd is already the newest version (1.4.4+dfsg-3ubuntu0.1).
+The following packages were automatically installed and are no longer required:
+  chromium-codecs-ffmpeg-extra gir1.2-goa-1.0 gstreamer1.0-vaapi
+  libfwupdplugin1 libva-wayland2 libxmlb1
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 30 not upgraded.
+============= Generate locale  ================
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+Generation complete.
+Verifying locale settings...
+LANG=en_US.UTF-8
+LANGUAGE=en_IN:en
+LC_CTYPE="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_PAPER="en_US.UTF-8"
+LC_NAME="en_US.UTF-8"
+LC_ADDRESS="en_US.UTF-8"
+LC_TELEPHONE="en_US.UTF-8"
+LC_MEASUREMENT="en_US.UTF-8"
+LC_IDENTIFICATION="en_US.UTF-8"
+LC_ALL=en_US.UTF-8
+INFO: Fetching buildtools installer
+INFO: Fetching buildtools installer checksum
+INFO: Checksum success
+INFO: Making installer executable
+Extended Build tools installer version 4.0.28
+=============================================
+You are about to install the SDK to "/home/omrathod/yocto/poky/buildtools". Proceed [Y/n]? Y
+Extracting SDK..................done
+Setting it up...done
+SDK has been successfully set up and is ready to be used.
+Each time you wish to use the SDK in a new shell session, you need to source the environment setup script e.g.
+ $ . /home/omrathod/yocto/poky/buildtools/environment-setup-x86_64-pokysdk-linux
+INFO: Setting up the environment
+INFO: Testing installation
+INFO: Installation successful. Remember to source the environment setup script now and in any new session.
+
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Common targets are:
+    core-image-minimal
+    core-image-full-cmdline
+    core-image-sato
+    core-image-weston
+    meta-toolchain
+    meta-ide-support
+
+You can also run generated qemu images with a command like 'runqemu qemux86'
+
+Other commonly useful commands are:
+ - 'devtool' and 'recipetool' handle common recipe tasks
+ - 'bitbake-layers' handles common layer tasks
+ - 'oe-pkgdata-util' handles common target package tasks
+=================================================================
+=============== To enter the build environment later, run : source poky/oe-init-build-env build ===============
+=============== Setup is Done. ===============
+=================================================================
+=============== Creating Image for beagle-bone-black  ===============
+
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Common targets are:
+    core-image-minimal
+    core-image-full-cmdline
+    core-image-sato
+    core-image-weston
+    meta-toolchain
+    meta-ide-support
+
+You can also run generated qemu images with a command like 'runqemu qemux86'
+
+Other commonly useful commands are:
+ - 'devtool' and 'recipetool' handle common recipe tasks
+ - 'bitbake-layers' handles common layer tasks
+ - 'oe-pkgdata-util' handles common target package tasks
+Loading cache...done.
+Loaded 1650 entries from dependency cache.
+Parsing recipes...done.
+Parsing of 889 .bb files complete (880 cached, 9 parsed). 1650 targets, 63 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.0.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "arm-poky-linux-gnueabi"
+MACHINE              = "beaglebone-yocto"
+DISTRO               = "poky"
+DISTRO_VERSION       = "4.0.28"
+TUNE_FEATURES        = "arm vfp cortexa8 neon callconvention-hard"
+TARGET_FPU           = "hard"
+meta                 
+meta-poky            
+meta-yocto-bsp       = "kirkstone:f29a38bdcb908a75b8314b500802ffa651f976ed"
+meta-temp            
+meta-jsonapp         = "<unknown>:<unknown>"
+
+Initialising tasks...done.
+Sstate summary: Wanted 0 Local 0 Mirrors 0 Missed 0 Current 1440 (0% match, 100% complete)
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 3747 tasks of which 3747 didn't need to be rerun and all succeeded.
