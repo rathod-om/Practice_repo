@@ -42,7 +42,7 @@ sudo apt install -y \
 
 echo "============= Generate locale  ================"
 sudo locale-gen en_US.UTF-8
-do update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -87,13 +87,13 @@ fi
 echo "=============== Creating cloning recipes from git  ==============="
 cd $BUILD_DIR/meta-jsonapp/
 
-git clone https://github.com/rathod-om/Practice_repo
+if [ ! -d recipes-jsonapp ]; then
+	git clone https://github.com/rathod-om/Practice_repo
 
-
-cp -r $BUILD_DIR/meta-jsonapp/Practice_repo/ravi/recipes-jsonapp/ .
-
-rm -rf $BUILD_DIR/meta-jsonapp/Practice_repo  
-
+	cp -r $BUILD_DIR/meta-jsonapp/Practice_repo/ravi/recipes-jsonapp/ .
+	
+	rm -rf $BUILD_DIR/meta-jsonapp/Practice_repo  
+fi
 
 echo "=============== bitbaking the core-image-cjson code  ==============="
 
