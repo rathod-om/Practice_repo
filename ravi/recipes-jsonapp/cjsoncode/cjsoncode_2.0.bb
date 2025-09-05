@@ -10,8 +10,8 @@ LICENSE = "CLOSED"
 
 SRC_URI = "git://github.com/rathod-om/Practice_repo.git;protocol=ssh;branch=main"
 
-SRCREV = "dc521b25ce0913957f3ee2e8adb7b880038fbd49"
-#SRCREV = "AUTOINC"
+#SRCREV = "dc521b25ce0913957f3ee2e8adb7b880038fbd49"
+SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
@@ -20,11 +20,11 @@ DEPENDS += "cjsonlib"
 do_compile() {
         ${CC} ${CFLAGS} ${LDFLAGS} \
         -I${STAGING_INCDIR} \
-        ravi/c_program/003_json_generic/json_generic.c -o json_generic_git -lcjson
+        ravi/c_program/003_json_generic/json_generic.c -o cjson -lcjson
 }
 
 do_install() {
         install -d ${D}${bindir}
-        install -m 0755 json_generic_git ${D}${bindir}
+        install -m 0755 cjson ${D}${bindir}
 }
 
