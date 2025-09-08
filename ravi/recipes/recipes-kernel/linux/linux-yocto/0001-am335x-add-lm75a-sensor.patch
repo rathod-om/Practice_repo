@@ -1,0 +1,31 @@
+From d56b56642d7468140fb036fd184ba564c540b442 Mon Sep 17 00:00:00 2001
+From: om <om.rathod@einfochips.com>
+Date: Tue, 2 Sep 2025 10:56:15 +0530
+Subject: [PATCH] am335x add lm75a sensor
+
+Signed-off-by: om <om.rathod@einfochips.com>
+---
+ arch/arm/boot/dts/am335x-boneblack.dts | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index 9312197316f0..2ca7ae9b0c7f 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -168,3 +168,13 @@ &gpio3 {
+ 		"NC",
+ 		"NC";
+ };
++
++&i2c2 {
++    status = "okay";
++
++    lm75a@48 {
++        compatible = "lm75a";
++        reg = <0x48>;   /* I2C address, depends on sensor’s A0/A1/A2 pins */
++    };
++};
++
+-- 
+2.25.1
+

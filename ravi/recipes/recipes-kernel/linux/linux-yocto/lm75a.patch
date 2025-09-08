@@ -1,0 +1,43 @@
+From e88730e325f167f663885ed2ccbd3083e0c5869d Mon Sep 17 00:00:00 2001
+From: OpenEmbedded <oe.patch@oe>
+Date: Mon, 1 Sep 2025 16:25:49 +0530
+Subject: [PATCH] hwmon: add LM75A I2C temperature sensor driver
+
+---
+ drivers/hwmon/Kconfig  | 6 ++++++
+ drivers/hwmon/Makefile | 2 ++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+index 17ba1d9ff075..57f84763227f 100644
+--- a/drivers/hwmon/Kconfig
++++ b/drivers/hwmon/Kconfig
+@@ -1214,6 +1214,12 @@ config SENSORS_LM73
+ 	  This driver can also be built as a module. If so, the module
+ 	  will be called lm73.
+ 
++config SENSORS_LM75A
++	tristate "LM75A temperature sensor support"
++	depends on I2C && HWMON
++	help
++		Say Y here to enable support for the LM75A I2C temperature sensor.
++
+ config SENSORS_LM75
+ 	tristate "National Semiconductor LM75 and compatibles"
+ 	depends on I2C
+diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
+index 162940270661..d64e2ca008fd 100644
+--- a/drivers/hwmon/Makefile
++++ b/drivers/hwmon/Makefile
+@@ -204,6 +204,8 @@ obj-$(CONFIG_SENSORS_XGENE)	+= xgene-hwmon.o
+ 
+ obj-$(CONFIG_SENSORS_OCC)	+= occ/
+ obj-$(CONFIG_PMBUS)		+= pmbus/
++obj-$(CONFIG_SENSORS_LM75A) += lm75a.o
++
+ 
+ ccflags-$(CONFIG_HWMON_DEBUG_CHIP) := -DDEBUG
+ 
+-- 
+2.25.1
+
