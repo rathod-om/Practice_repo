@@ -7,8 +7,8 @@ YOCTO_DIR="$PWD/yocto"
 POKY_DIR="$YOCTO_DIR/poky"
 BUILD_DIR="$YOCTO_DIR/build"
 BRANCH="kirkstone"
-LOG_FILE="logs/Yocto-install-add-recipe-$(date +%d-%m-%y-%H-%M-%S).log"
-LAYER="meta-drivers"
+LOG_FILE="logs/Yocto_install_add_recipe_$(date +%d_%m_%y_%H_%M_%S).log"
+LAYER="../meta-drivers"
 GIT_REPO="https://github.com/rathod-om/Practice_repo"
 GIT_PATH="Practice_repo/recipes-kernel/"
 
@@ -65,7 +65,7 @@ fi
 # Install Yocto buildtools
 if [ -x "$POKY_DIR/scripts/install-buildtools" ]; then
 	echo "Installing Yocto buildtools..."
-	"$POKY_DIR/scripts/install-buildtools" --base-url https://downloads.yoctoproject.org/releases/yocto
+	"$POKY_DIR/scripts/install-buildtools" --base-url https://downloads.yoctoproject.org/releases/yocto --installer-version 4.0.28
 else 
 	echo "install-buildtools not found in Poky."
 fi
@@ -100,11 +100,11 @@ if [ ! -d recipes-jsonapp ]; then
 	rm -rf $BUILD_DIR/$LAYER/Practice_repo  
 fi
 
-echo "=============== bitbaking the core-image-cjson code  ==============="
+echo "=============== bitbaking the core-image  ==============="
 
 
 # Creating Image for beagle-bone-black
 MACHINE=beaglebone-yocto bitbake core-image-minimal
 
-echo "=============== Image built for cjson code  ==============="
+echo "=============== Image built  ==============="
 
