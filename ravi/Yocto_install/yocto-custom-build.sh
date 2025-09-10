@@ -7,8 +7,11 @@ YOCTO_DIR="$PWD/yocto"
 POKY_DIR="$YOCTO_DIR/poky"
 BUILD_DIR="$YOCTO_DIR/build"
 BRANCH="kirkstone"
-LOG_FILE="logs/Yocto_install_add_recipe_$(date +%d_%m_%y_%H_%M_%S).log"
-LAYER="meta-jsonapp"
+LOG_FILE="logs/Yocto-install-add-recipe-$(date +%d-%m-%y-%H-%M-%S).log"
+LAYER="meta-drivers"
+GIT_REPO="https://github.com/rathod-om/Practice_repo"
+GIT_PATH="Practice_repo/recipes-kernel/"
+
 
 mkdir -p logs
 exec > >(tee -a "$LOG_FILE") 2>&1
@@ -90,9 +93,9 @@ echo "=============== Creating cloning recipes from git  ==============="
 cd $BUILD_DIR/$LAYER/
 
 if [ ! -d recipes-jsonapp ]; then
-	git clone --branch custom-recipe --single-branch "https://github.com/rathod-om/Practice_repo"
-
-	cp -r $BUILD_DIR/$LAYER/Practice_repo/recipes-jsonapp/ .
+	git clone --branch custom-recipe --single-branch $GIT_REPO
+	
+	cp -r $BUILD_DIR/$LAYER/$GIT_PATH .
 
 	rm -rf $BUILD_DIR/$LAYER/Practice_repo  
 fi
@@ -101,7 +104,7 @@ echo "=============== bitbaking the core-image-cjson code  ==============="
 
 
 # Creating Image for beagle-bone-black
-MACHINE=beaglebone-yocto bitbake core-image-cjson
+MACHINE=beaglebone-yocto bitbake core-image-minimal
 
 echo "=============== Image built for cjson code  ==============="
 
