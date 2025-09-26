@@ -1,0 +1,26 @@
+From 44c36661fc487af54346baca804361e482fe13c3 Mon Sep 17 00:00:00 2001
+From: om <om.rathod@einfochips.com>
+Date: Thu, 18 Sep 2025 12:28:13 +0530
+Subject: [PATCH] am334x boneblack dts file added eaapmst3923a2 into tree
+
+---
+ arch/arm/boot/dts/am335x-boneblack.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index 78b1f7033fd1..dd035f927d02 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -176,5 +176,9 @@ lm75a@48 {
+         compatible = "lm75a";
+         reg = <0x48>;   /* I2C address, depends on sensor’s A0/A1/A2 pins */
+     };
++	eaapmst3923a2@44 {
++		compatible = "eaapmst3923a2";
++		reg = <0x44>;
++	};
+ };
+ 
+-- 
+2.25.1
+

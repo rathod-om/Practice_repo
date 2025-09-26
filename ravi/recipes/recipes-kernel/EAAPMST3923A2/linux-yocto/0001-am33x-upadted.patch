@@ -1,0 +1,28 @@
+From 9c479a35e0c05eb7133912812f69aa0bf925a9a9 Mon Sep 17 00:00:00 2001
+From: om <om.rathod@einfochips.com>
+Date: Thu, 18 Sep 2025 14:50:50 +0530
+Subject: [PATCH] am33x upadted
+
+---
+ arch/arm/boot/dts/am335x-boneblack.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index 78b1f7033fd1..70ac35b70697 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -178,3 +178,11 @@ lm75a@48 {
+     };
+ };
+ 
++
++&i2c2 {
++    	status = "okay";
++	eaapmst3923a2@44 {
++       		compatible = "eaap,pmst3923a2";
++              	reg = <0x44>;
++       	};
++};
+-- 
+2.25.1
+

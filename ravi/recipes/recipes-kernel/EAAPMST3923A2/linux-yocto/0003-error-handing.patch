@@ -1,0 +1,39 @@
+From 4bea1c2ea7cf9f7766e548926752ef79f1a19337 Mon Sep 17 00:00:00 2001
+From: om <om.rathod@einfochips.com>
+Date: Fri, 19 Sep 2025 11:08:47 +0530
+Subject: [PATCH 3/3] error handing
+
+---
+ drivers/iio/light/eaapmst3923a2.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/iio/light/eaapmst3923a2.c b/drivers/iio/light/eaapmst3923a2.c
+index b0f744c18560..789083aedc61 100644
+--- a/drivers/iio/light/eaapmst3923a2.c
++++ b/drivers/iio/light/eaapmst3923a2.c
+@@ -70,6 +70,13 @@ static const struct iio_info eaapmst3923a2_info = {
+ 	.read_raw = eaapmst3923a2_read_raw,
+ };
+ 
++static const struct regmap_config eaapmst3923a2_regmap_config = {
++    .reg_bits = 8,
++    .val_bits = 8,
++};
++
++
++
+ /* I2C probe */
+ static int eaapmst3923a2_probe(struct i2c_client *client,
+ 			       const struct i2c_device_id *id)
+@@ -79,7 +86,7 @@ static int eaapmst3923a2_probe(struct i2c_client *client,
+ 	struct regmap *regmap;
+ 	int ret;
+ 
+-	regmap = devm_regmap_init_i2c(client, NULL);
++	regmap = devm_regmap_init_i2c(client, &eaapmst3923a2_regmap_config);
+ 	if (IS_ERR(regmap))
+ 		return PTR_ERR(regmap);
+ 
+-- 
+2.25.1
+

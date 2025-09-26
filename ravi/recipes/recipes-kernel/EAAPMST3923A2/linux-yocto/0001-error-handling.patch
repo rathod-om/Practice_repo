@@ -1,0 +1,30 @@
+From ed7232d3424ae634b667178b1f668e525d1c8147 Mon Sep 17 00:00:00 2001
+From: om <om.rathod@einfochips.com>
+Date: Thu, 18 Sep 2025 14:32:56 +0530
+Subject: [PATCH] error handling
+
+---
+ drivers/iio/light/eaapmst3923a2.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/drivers/iio/light/eaapmst3923a2.c b/drivers/iio/light/eaapmst3923a2.c
+index fd2d80109088..7b57636fb685 100644
+--- a/drivers/iio/light/eaapmst3923a2.c
++++ b/drivers/iio/light/eaapmst3923a2.c
+@@ -110,6 +110,13 @@ static int eaapmst3923a2_remove(struct i2c_client *client)
+ 	return 0;
+ }
+ 
++static const struct of_device_id eaapmst3923a2_of_match[] = {
++    { .compatible = "eaapm,eaapmst3923a2" },
++    { }
++};
++MODULE_DEVICE_TABLE(of, eaapmst3923a2_of_match);
++
++
+ static const struct i2c_device_id eaapmst3923a2_id[] = {
+ 	{ "eaapmst3923a2", 0 },
+ 	{ }
+-- 
+2.25.1
+

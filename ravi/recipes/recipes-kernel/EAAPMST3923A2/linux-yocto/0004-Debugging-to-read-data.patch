@@ -1,0 +1,34 @@
+From 64aa47b4ee345debf77ed0e14e9729f9934d159e Mon Sep 17 00:00:00 2001
+From: om <om.rathod@einfochips.com>
+Date: Fri, 19 Sep 2025 12:24:57 +0530
+Subject: [PATCH 4/4] Debugging to read data
+
+---
+ drivers/iio/light/eaapmst3923a2.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/iio/light/eaapmst3923a2.c b/drivers/iio/light/eaapmst3923a2.c
+index 789083aedc61..953afb6b3d0a 100644
+--- a/drivers/iio/light/eaapmst3923a2.c
++++ b/drivers/iio/light/eaapmst3923a2.c
+@@ -39,6 +39,8 @@ static int eaapmst3923a2_read_raw(struct iio_dev *indio_dev,
+ 		ret = regmap_read(data->regmap, EAAPMST3923A2_REG_ALS_HIGH, &hi);
+ 		if (ret < 0) return ret;
+ 		*val = (hi << 8) | lo;
++
++		dev_info(&data->client->dev, "ALS raw read: lo=%02x hi=%02x val=%d\n", lo, hi, *val);
+ 		return IIO_VAL_INT;
+ 
+ 	case IIO_PROXIMITY:
+@@ -47,6 +49,8 @@ static int eaapmst3923a2_read_raw(struct iio_dev *indio_dev,
+ 		ret = regmap_read(data->regmap, EAAPMST3923A2_REG_PS_HIGH, &hi);
+ 		if (ret < 0) return ret;
+ 		*val = (hi << 8) | lo;
++
++		dev_info(&data->client->dev, "Proximity raw read: lo=%02x hi=%02x val=%d\n", lo, hi, *val);
+ 		return IIO_VAL_INT;
+ 
+ 	default:
+-- 
+2.25.1
+

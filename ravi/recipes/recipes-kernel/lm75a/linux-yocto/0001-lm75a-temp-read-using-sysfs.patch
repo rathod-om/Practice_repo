@@ -1,0 +1,123 @@
+From 8f9933fc5aa02c9699ab171f46bdee687b179aef Mon Sep 17 00:00:00 2001
+From: om <om.rathod@einfochips.com>
+Date: Tue, 23 Sep 2025 15:24:15 +0530
+Subject: [PATCH] lm75a temp read using sysfs
+
+---
+ drivers/misc/Kconfig       |  6 +++
+ drivers/misc/Makefile      |  1 +
+ drivers/misc/lm75a-sysfs.c | 76 ++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 83 insertions(+)
+ create mode 100644 drivers/misc/lm75a-sysfs.c
+
+diff --git a/drivers/misc/Kconfig b/drivers/misc/Kconfig
+index 0f5a49fc7c9e..1a0fe3cb4331 100644
+--- a/drivers/misc/Kconfig
++++ b/drivers/misc/Kconfig
+@@ -93,6 +93,12 @@ config IBMVMC
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called ibmvmc.
+ 
++config LM75A_SYSFS
++    	tristate "Minimal LM75A temperature driver (sysfs only)"
++    	depends on I2C
++    	help
++      	  Simple LM75A temperature driver exposing /sys entry.
++
+ config PHANTOM
+ 	tristate "Sensable PHANToM (PCI)"
+ 	depends on PCI
+diff --git a/drivers/misc/Makefile b/drivers/misc/Makefile
+index a086197af544..0f1d4263a7c1 100644
+--- a/drivers/misc/Makefile
++++ b/drivers/misc/Makefile
+@@ -59,3 +59,4 @@ obj-$(CONFIG_UACCE)		+= uacce/
+ obj-$(CONFIG_XILINX_SDFEC)	+= xilinx_sdfec.o
+ obj-$(CONFIG_HISI_HIKEY_USB)	+= hisi_hikey_usb.o
+ obj-$(CONFIG_HI6421V600_IRQ)	+= hi6421v600-irq.o
++obj-$(CONFIG_LM75A_SYSFS)	+= lm75a-sysfs.o
+diff --git a/drivers/misc/lm75a-sysfs.c b/drivers/misc/lm75a-sysfs.c
+new file mode 100644
+index 000000000000..fd81c65735b4
+--- /dev/null
++++ b/drivers/misc/lm75a-sysfs.c
+@@ -0,0 +1,76 @@
++#include <linux/module.h>
++#include <linux/i2c.h>
++#include <linux/sysfs.h>
++#include <linux/device.h>
++#include <linux/fs.h>
++#include <linux/slab.h>
++#include <linux/uaccess.h>
++
++#define LM75A_REG_TEMP 0X00
++
++/* this function will invoke by sysfs when called to read */
++static ssize_t temp_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
++	struct i2c_client *client = to_i2c_client(dev);
++	s32 raw;
++	int temp_mC;
++
++	raw = i2c_smbus_read_word_data(client, LM75A_REG_TEMP);
++	if (raw < 0)
++		return raw;
++
++	raw = swab16(raw);
++	raw >>= 7;
++
++	temp_mC = raw * 500;
++
++	return sprintf(buf, "%d\n", temp_mC);
++
++}
++
++
++static DEVICE_ATTR_RO(temp);
++
++static int lm75a_probe(struct i2c_client *client, const struct i2c_device_id *id){
++	int ret;
++	dev_info(&client->dev,"LM75A sensor detectedn\n");
++	ret = device_create_file(&client->dev, &dev_attr_temp);
++
++	if (ret)
++		dev_err(&client->dev,"Failed to create sysfs entry\n");
++
++	return ret;
++}
++
++
++
++static int lm75a_remove(struct i2c_client *client)
++{
++	device_remove_file(&client->dev, &dev_attr_temp);
++	return 0;
++}
++
++
++static const struct i2c_device_id lm75a_id[] ={
++	{ "lm75a",0},
++	{ }
++};
++
++MODULE_DEVICE_TABLE(i2c, lm75a_id);
++
++
++static struct i2c_driver lm75a_driver = {
++	.driver = {
++		.name = "lm75a",
++	},
++	.probe = lm75a_probe,
++	.remove = lm75a_remove,
++	.id_table = lm75a_id
++};
++
++module_i2c_driver(lm75a_driver);
++
++MODULE_AUTHOR("Om Example");
++MODULE_DESCRIPTION("Minimal LM75A Driver without hwmon");
++MODULE_LICENSE("GPL");
+-- 
+2.25.1
+
